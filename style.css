@@ -1,17 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Sora:wght@100..800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Sora:wght@100..800&display=swap");
 
 :root {
-  font-family: 'Roboto Mono', monospace;
+  font-family: "Roboto Mono", monospace;
 }
 
 /* Variávies de estilos */
 :root {
   /*CONTEUDO*/
-  --contente-primary: #ffffff;
-  --contente-seconday: #c7c9cc;
-  --contente-tertiary: #d9d9d9;
-  --contente-brand: #c58de7;
+  --content-primary: #ffffff;
+  --content-seconday: #c7c9cc;
+  --content-tertiary: #d9d9d9;
+  --content-brand: #c58de7;
   --color-inverse: #030303;
   /*BACKGROUND*/
   --background-primary: #020202;
@@ -20,13 +20,14 @@
   --background-brand: #c58de7;
   --background-gray: #3d3d3d;
   /*ACCENT*/
-  --acent-pink: #d586e0;
-  --acent-blue: #91a1fa;
-  --acent-pink: #77c0aa;
-  --acent-pink: #d1dc97;
-  --acent-pink: #e9a9b3;
+  --accent-pink: #d586e0;
+  --accent-blue: #91a1fa;
+  --accent-pink: #77c0aa;
+  --accent-pink: #d1dc97;
+  --accent-pink: #e9a9b3;
   /*GRANDIENTE*/
-  --grandient-border: #77c0af 0%, #d1dc97 14.84%, #e9a9b3 32.15%, #d586e0 65.79%, #91a1fa 84.58%;
+  --grandient-border:
+    #77c0af 0%, #d1dc97 14.84%, #e9a9b3 32.15%, #d586e0 65.79%, #91a1fa 84.58%;
   --gradient-background: #d586e0 0%, #91a1fa 98.93%;
   --gradiente-content: #c7c9cc 0%, #3d3d3d 100%;
 }
@@ -42,4 +43,12 @@ body {
   background-color: var(--background-primary);
   width: 100%;
   background-image: url(./assets/Shapes.png);
+  color: var(--content-primary);
+}
+
+.page {
+  max-width: 1098px;
+  height: 412px;
+  margin: 0 auto;
+  padding: 20px;
 }
