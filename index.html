@@ -23,7 +23,7 @@
 
       <div class="page">
         <!----CONTEUDO DA PAGINA---->
-        <section id="info">
+        <div class="info">
           <div class="box-one">
             <div class="box-on-free">
               <span>ONLINE - GRATUITO</span>
@@ -55,8 +55,7 @@
               </div>
             </div>
           </div>
-        </section>
-
+        </div>
         <!----SEÇÃO DO SORTEIO-->
         <section id="numbers">
           <div class="info-2">
@@ -66,6 +65,21 @@
               na tela. É rápido e fácil!
             </p>
           </div>
+          <!--SEÇÃO RESULTADO DO SORTEIO-->
+          <section id="result" class="hidden">
+            <div class="info-2">
+              <h2>RESULTADO DO SORTEIO:</h2>
+              <p>1º RESULTADO</p>
+            </div>
+            <div class="number-display">
+              <span class="final-number">23</span>
+              <span class="final-number">10</span>
+            </div>
+            <button id="btn-restart">
+              Sortear novamente
+              <img src="./icons/replay.svg" alt="Recarregar" />
+            </button>
+          </section>
           <!---NÚMEROS DO SORTEIO DE.....ATÉ-->
           <form>
             <div class="box-input">
@@ -99,16 +113,15 @@
               </div>
               <label for="repeat">Não repetir número</label>
             </div>
-
+            <!------BOTÃO PARA SORTEAR-->
             <button type="submit">
               Sortear
               <img src="./icons/play.svg" alt="icone para ir para o sorteio" />
             </button>
           </form>
-          <!------BOTÃO PARA SORTEAR-->
         </section>
-        <script src="main.js"></script>
       </div>
     </div>
+    <script src="main.js"></script>
   </body>
 </html>
