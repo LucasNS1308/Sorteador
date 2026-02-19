@@ -137,11 +137,11 @@ body {
 }
 
 .box-two {
-  grid-column: 1fr;
+  display: flex;
+  gap: 36px;
   width: 386px;
   min-height: 150px;
   flex-direction: column;
-  gap: 36px;
 }
 
 .box-two img {
@@ -277,7 +277,6 @@ form {
 .switch input {
   position: relative;
   display: none;
-  z-index: -1;
 }
 
 /* CORPO DO CHECKBOX ATRÁS */
@@ -336,11 +335,16 @@ input:checked + .slider::before {
   display: none;
 }
 
+.number-display:hover {
+  transform: rotateZ(360deg);
+}
+
 .number-display {
   width: 121px;
   height: 100px;
   background-color: var(--content-brand);
   border-radius: 18px;
+  transition: 1s linear;
 }
 
 .final-number {
