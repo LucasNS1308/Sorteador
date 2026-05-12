@@ -343,7 +343,15 @@ input:checked + .slider::before {
   transform: rotateZ(360deg);
 }
 
+#numbers-result {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 .number-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 121px;
   height: 100px;
   background-color: var(--content-brand);
@@ -352,10 +360,9 @@ input:checked + .slider::before {
 }
 
 .final-number {
-  height: 100%;
+  display: inline-block;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  margin: 10px;
   font-size: 48px;
   color: #020202;
   animation: rotate-scale-down 0.65s linear both;

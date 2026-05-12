@@ -40,6 +40,7 @@ function showResult(result) {
   removeForm.style.display = 'none';
 
   removeSpan.innerHTML = '';
+  styleResultNumber.classList.add('span');
 
   result.forEach((number) => {
     const span = document.createElement('span');
