@@ -1,34 +1,56 @@
 const numberMin = document.getElementById('min'); //INPUTS E LABELS
 const numberMax = document.getElementById('max'); //INPUTS E LABELS
 const quantity = document.getElementById('quantity'); //INPUTS E LABELS
+
 const btnSortear = document.getElementById('btn'); //BOTÃO DE SORTEIO
 const alertMessage = document.querySelector('.message'); //MENSAGEM DE ALERTA PARA O USUARIO
 const norepeat = document.getElementById('repeat'); //NAO REPETIR NUMEROS SORTEADOS
+
 const resultSorteio = document.getElementById('result'); //RESULTADO FINAL DO SORTEIO
 const styleResultNumber = document.querySelector('.final-number', '.display-number'); //ESTILO DO RESULTADO DO SORTEIIO
-const removeForm = document.querySelector('form');
+const removeForm = document.querySelector('form'); //Remover formularios após o Sorteio
 const classRemove = document.querySelector('.info-2');
 const removeSpan = document.getElementById('numbers-result');
+const SortearNovamente = document.getElementById('btn-restart');
+const MenuSorteio = document.getElementById('numbers');
 
+//EVENTO DE CLIQUE NO BOTAO (SORTEAR)
 btnSortear.addEventListener('click', (event) => {
-  //EVENTO DE CLIQUE NO BOTAO (SORTEAR)
   event.preventDefault();
   const quantityValue = parseInt(quantity.value);
   const minValue = parseInt(numberMin.value);
   const maxValue = parseInt(numberMax.value);
 
+  if (isNaN(minValue) || isNaN(maxValue) || isNaN(quantityValue)) {
+    showError('Digite os valores no campo');
+    return alertMessage;
+  }
+
   if (maxValue <= minValue) {
     showError('O valor máximo dever ser maior');
-    return;
+    return alertMessage;
   }
 
   if (norepeat.checked && quantityValue > maxValue - minValue + 1) {
     showError('A quantidade deve ser menor que o valor do intervalo');
-    return;
+    return alertMessage;
   }
 
-  const resultFinal = numberNoRepeat(quantityValue, maxValue, minValue);
-  showResult(resultFinal); //MOSTRAR O RESULTADO DO SORTEIO
+  const resultFinal = norepeat.checked
+    ? numberNoRepeat(quantityValue, minValue, maxValue)
+    : repeatNumber(quantityValue, minValue, maxValue);
+  showResult(resultFinal);
+});
+
+//LIMPAR E SORTEAR NOVAMENTE...
+SortearNovamente.addEventListener('click', (event) => {
+  event.preventDefault();
+
+  removeSpan.innerHTML = '';
+  resultSorteio.style.display = 'none';
+
+  classRemove.style.display = 'flex';
+  removeForm.style.display = 'flex';
 });
 
 function showResult(result) {
@@ -67,7 +89,7 @@ function generatorNumber(minValue, maxValue) {
 }
 
 //FUNÇÃO CRIADA PARA NAO REPETIR OS NUMEROS SORTEADOS
-function numberNoRepeat(quantityValue, maxValue, minValue) {
+function numberNoRepeat(quantityValue, minValue, maxValue) {
   const saveNumber = [];
 
   while (saveNumber.length < quantityValue) {
@@ -78,4 +100,16 @@ function numberNoRepeat(quantityValue, maxValue, minValue) {
   }
 
   return saveNumber;
+}
+
+//FUNÇÃO CRIADA PARA REPETIR NUMEROS
+function repeatNumber(quantityValue, minValue, maxValue) {
+  const saveRepeat = [];
+
+  for (let i = 0; i < quantityValue; i++) {
+    let sorteio = generatorNumber(minValue, maxValue);
+    saveRepeat.push(sorteio);
+  }
+
+  return saveRepeat;
 }
