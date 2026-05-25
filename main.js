@@ -70,6 +70,8 @@ function showResult(result) {
     span.classList.add('final-number', 'number-display');
     removeSpan.appendChild(span);
   });
+
+  showSucess('Números sorteados com sucesso.');
 }
 
 //FUNÇÃO CRIADA PARA MOSTRA MENSAGEM DE ERRO
@@ -81,6 +83,16 @@ function showError(message) {
     alertMessage.classList.remove('message-error');
     alertMessage.style.display = 'none';
   }, 2000);
+}
+
+function showSucess(sucess) {
+  alertMessage.classList.add('message-sucess');
+  alertMessage.textContent = sucess;
+  alertMessage.style.display = 'flex';
+  setTimeout(() => {
+    alertMessage.classList.remove('message-sucess');
+    alertMessage.style.display = 'none';
+  }, 4000);
 }
 
 //FUNÇÃO PARA RECEBER UM VALOR MININO E MÁXIMO
