@@ -9,7 +9,7 @@ const norepeat = document.getElementById('repeat'); //NAO REPETIR NUMEROS SORTEA
 const resultSorteio = document.getElementById('result'); //RESULTADO FINAL DO SORTEIO
 const styleResultNumber = document.querySelector('.final-number', '.display-number'); //ESTILO DO RESULTADO DO SORTEIIO
 const removeForm = document.querySelector('form'); //Remover formularios após o Sorteio
-const classRemove = document.querySelector('.info-2');
+const classRemove = document.querySelector('.info-2'); //REMOVENDO INFORMACOES DA TELA APOS O SORTEIO
 const removeSpan = document.getElementById('numbers-result');
 const SortearNovamente = document.getElementById('btn-restart');
 const MenuSorteio = document.getElementById('numbers');
@@ -56,13 +56,23 @@ SortearNovamente.addEventListener('click', (event) => {
 function showResult(result) {
   //EXIBE OS NUMEROS SORTEADOS NA TELA
 
+  btnSortear.disabled = true
+  SortearNovamente.disabled = true
+
+  setTimeout(() => {
+    btnSortear.disabled = false
+    SortearNovamente.disabled = false1
+  }, 4000)
+
+
+
   resultSorteio.style.display = 'flex';
 
   classRemove.style.display = 'none';
   removeForm.style.display = 'none';
 
   removeSpan.innerHTML = '';
-  styleResultNumber.classList.add('span');
+
 
   result.forEach((number) => {
     const span = document.createElement('span');
@@ -70,6 +80,8 @@ function showResult(result) {
     span.classList.add('final-number', 'number-display');
     removeSpan.appendChild(span);
   });
+
+  
 
   showSucess('Números sorteados com sucesso.');
 }
@@ -85,6 +97,7 @@ function showError(message) {
   }, 2000);
 }
 
+//FUNÇÃO CRIADA PARA SUCESSO AO GERAR OS NÚMEROS
 function showSucess(sucess) {
   alertMessage.classList.add('message-sucess');
   alertMessage.textContent = sucess;
